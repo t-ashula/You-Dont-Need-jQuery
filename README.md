@@ -1,6 +1,6 @@
 ## You Don't Need jQuery
 
-Frontend environment evolves repaidly nowadays, modern browsers have already implemented a great deal of DOM/BOM APIs which are good enough. We don't have to learn jQuery from scratch for DOM manipulation or events. In the meantime, thanks to the prevail of frontend libraries like React, Angular and Vue, manipulating DOM directly becomes anti-pattern, jQuery has never been less important. This project summarized most of the jQuery method alternatives in native implementation, with IE 10+ support.
+Frontend environments evolve rapidly nowadays, modern browsers have already implemented a great deal of DOM/BOM APIs which are good enough. We don't have to learn jQuery from scratch for DOM manipulation or events. In the meantime, thanks to the prevailment of frontend libraries such as React, Angular and Vue, manipulating DOM directly becomes anti-pattern, jQuery has never been less important. This project summarizes most of the jQuery method alternatives in native implementation, with IE 10+ support.
 
 ## Table of Contents
 
@@ -15,21 +15,34 @@ Frontend environment evolves repaidly nowadays, modern browsers have already imp
 
 ## Query Selector
 
-Common selectors like class, id or attribute we can use `document.querySelector` or `document.querySelectorAll` for substitution. The differences lie in:
+In place of common selectors like class, id or attribute we can use `document.querySelector` or `document.querySelectorAll` for substitution. The differences lie in:
 * `document.querySelector` returns the first matched element
 * `document.querySelectorAll` returns all matched elements as NodeList. It can be converted to Array using `[].slice.call`
 * If no elements matched, jQuery would return `[]` whereas the DOM API will return `null`. Pay attention to Null Pointer Exception.
 
-> Noice: `document.querySelector` and `document.querySelectorAll` are quite **SLOW**, try to use `getElementById`, `document.getElementsByClassName` or `document.getElementsByTagName` if you want to get a performance bonus.
+> Notice: `document.querySelector` and `document.querySelectorAll` are quite **SLOW**, try to use `getElementById`, `document.getElementsByClassName` or `document.getElementsByTagName` if you want to get a performance bonus.
+
+- [1.0](#1.0) <a name='1.0'></a> Query by selector
+
+  ```js
+  // jQuery
+  $('selector');
+
+  // Native
+  document.querySelectorAll('selector');
+  ```
 
 - [1.1](#1.1) <a name='1.1'></a> Query by class
 
   ```js
   // jQuery
-  $('.css');
+  $('.class');
 
   // Native
-  document.querySelectorAll('.css');
+  document.querySelectorAll('.class');
+  
+  // or
+  document.getElementsByClassName('class');
   ```
 
 - [1.2](#1.2) <a name='1.2'></a> Query by id
@@ -40,6 +53,9 @@ Common selectors like class, id or attribute we can use `document.querySelector`
 
   // Native
   document.querySelector('#id');
+  
+  // or
+  document.getElementById('id');
   ```
 
 - [1.3](#1.3) <a name='1.3'></a> Query by attribute
@@ -575,7 +591,7 @@ For a complete replacement with namespace and delegation, refer to https://githu
   $.trim(string);
 
   // Native
-  String.trim(string);
+  string.trim();
   ```
 
 - [6.3](#6.3) <a name='6.3'></a> Object Assign
@@ -606,6 +622,7 @@ For a complete replacement with namespace and delegation, refer to https://githu
 
 * [한국어](./README.ko-KR.md)
 * [简体中文](./README.zh-CN.md)
+* [Bahasa Melayu](./README-my.md)
 
 ## Browser Support
 
