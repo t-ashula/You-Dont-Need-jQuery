@@ -15,7 +15,7 @@ Web のフロントエンド環境は日々進化し，十分で大量な DOM/BO
 
 ## Query Selector
 
-クラスや ID，属性と言った一般的なセレクターには `document.querySelector` か `document.querySelectorAll` が代わりに使える．
+クラスや ID，属性と言った一般的なセレクタには `document.querySelector` か `document.querySelectorAll` が代わりに使える．
 違いは
 * `document.querySelector` が最初にマッチした要素を返す
 * `document.querySelectorAll` はマッチした要素すべてを NodeList で返す．`[].slice.call` を使えば Array に出来る．
@@ -23,17 +23,31 @@ Web のフロントエンド環境は日々進化し，十分で大量な DOM/BO
 
 > 注: `document.querySelector` と `document.querySelectorAll` はかなり **遅い** ので性能を求めるなら `getElementById` や `document.getElementsByClassName`, `document.getElementsByTagName` を使ってみたらいい．
 
-- [1.1](#1.1) <a name='1.1'></a> クラスセレクター
+- [1.0](#1.0) <a name='1.0'></a> セレクタ
 
   ```js
   // jQuery
-  $('.css');
+  $('selector');
 
   // Native
-  document.querySelectorAll('.css');
+  document.querySelectorAll('selector');
   ```
 
-- [1.2](#1.2) <a name='1.2'></a> ID セレクター
+- [1.1](#1.1) <a name='1.1'></a> クラスセレクタ
+
+  ```js
+  // jQuery
+  $('.class');
+
+  // Native
+  document.querySelectorAll('.class');
+  
+  // あるいは
+  document.getElementsByClassName('class');
+
+  ```
+
+- [1.2](#1.2) <a name='1.2'></a> ID セレクタ
 
   ```js
   // jQuery
@@ -41,9 +55,12 @@ Web のフロントエンド環境は日々進化し，十分で大量な DOM/BO
 
   // Native
   document.querySelector('#id');
+
+  // あるいは
+  document.getElementById('id');
   ```
 
-- [1.3](#1.3) <a name='1.3'></a> 属性セレクター
+- [1.3](#1.3) <a name='1.3'></a> 属性セレクタ
 
   ```js
   // jQuery
@@ -229,7 +246,7 @@ Web のフロントエンド環境は日々進化し，十分で大量な DOM/BO
     iframe.contentDocument.querySelectorAll('.css');
     ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ トップへ](#table-of-contents)**
 
 ## CSS & Style
 
@@ -389,7 +406,7 @@ Web のフロントエンド環境は日々進化し，十分で大量な DOM/BO
   (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
   ```
 
-**[⬆ 上へ戻る](#table-of-contents)**
+**[⬆ トップへ](#table-of-contents)**
 
 ## DOM 操作
 
